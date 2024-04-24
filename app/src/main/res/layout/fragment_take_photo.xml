@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/cameraPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <com.example.cameraapporginal.presentantion.all_photos.FocusCircleView
+            android:id="@+id/focusCircleView"
+            android:layout_width="0dp"
+            android:layout_height="0dp" />
+    </androidx.camera.view.PreviewView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="124dp"
+        android:layout_height="124dp"
+        android:background="@drawable/circle_shape"
+        android:indeterminate="false"
+        android:layout_marginTop="64dp"
+        android:progressDrawable="@drawable/circular_progress_bar"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/proressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/uzum_bold"
+        android:text="5"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/progressBar"
+        app:layout_constraintEnd_toEndOf="@id/progressBar"
+        app:layout_constraintStart_toStartOf="@id/progressBar"
+        app:layout_constraintTop_toTopOf="@id/progressBar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progress_state"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/bottom_bar1"
+            android:layout_width="match_parent"
+            android:layout_height="208dp"
+            android:background="@color/transparent_fourty_percent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:visibility="visible"
+            android:elevation="2dp"
+            android:background="@drawable/bg_circule"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar1"
+            app:layout_constraintLeft_toLeftOf="@id/bottom_bar1"
+            app:layout_constraintRight_toRightOf="@id/bottom_bar1"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar1" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_stop_black"
+            android:elevation="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar1"
+            app:layout_constraintLeft_toLeftOf="@id/bottom_bar1"
+            app:layout_constraintRight_toRightOf="@id/bottom_bar1"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar1" />
+
+        <ImageView
+            android:id="@+id/btn_stop_progress"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_color_stroke"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_bar1"
+            app:layout_constraintLeft_toLeftOf="@id/bottom_bar1"
+            app:layout_constraintRight_toRightOf="@id/bottom_bar1"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_state"
+        android:layout_width="match_parent"
+        android:visibility="visible"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/btn_stop_time"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:elevation="10dp"
+            android:background="@drawable/bg_color_stroke"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar" />
+
+        <ImageView
+            android:id="@+id/square_img"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:elevation="10dp"
+            android:visibility="gone"
+            android:background="@drawable/ic_stop"
+            app:layout_constraintBottom_toBottomOf="@id/btn_stop_time"
+            app:layout_constraintLeft_toLeftOf="@id/btn_stop_time"
+            app:layout_constraintRight_toRightOf="@id/btn_stop_time"
+            app:layout_constraintTop_toTopOf="@id/btn_stop_time"
+            app:tint="@color/black" />
+
+
+
+
+
+        <FrameLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/transparent_fourty_percent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/btn_photo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/bg_gray"-->
+<!--            android:fontFamily="@font/uzum_bold"-->
+<!--            android:paddingHorizontal="12dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:text="@string/photo"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/btn_capture"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/btn_video"-->
+<!--            app:layout_constraintStart_toStartOf="@id/bottom_bar"-->
+<!--            app:layout_constraintTop_toTopOf="@id/bottom_bar" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/btn_video"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/bg_gray"-->
+<!--            android:fontFamily="@font/uzum_bold"-->
+<!--            android:paddingHorizontal="12dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:text="@string/video"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+
+<!--            app:layout_constraintBottom_toTopOf="@+id/btn_capture"-->
+<!--            app:layout_constraintEnd_toEndOf="@id/bottom_bar"-->
+<!--            app:layout_constraintStart_toEndOf="@id/btn_photo"-->
+<!--            app:layout_constraintTop_toTopOf="@id/bottom_bar" />-->
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/flashToggleIB"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="16dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/flash_off"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_timer"
+                    app:layout_constraintStart_toEndOf="@id/btn_settings"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+                <ImageButton
+                    android:id="@+id/btn_timer"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_margin="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/clock_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/aspectRatioTxt"
+                    app:layout_constraintStart_toEndOf="@id/flashToggleIB"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+                <TextView
+                    android:id="@+id/aspectRatioTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/uzum_bold"
+                    android:padding="6dp"
+                    android:text="16:9"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_timer"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/btn_settings"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_margin="10dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:src="@drawable/settings_svgrepo_com"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/flashToggleIB"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/timer_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/black"
+            android:elevation="2dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/btn_timer_none"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/clock_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_timer_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/gold" />
+                <!--            app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+
+                <ImageButton
+                    android:id="@+id/btn_timer_2"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/two_times_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_timer_5"
+                    app:layout_constraintStart_toEndOf="@id/btn_timer_none"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+                <ImageButton
+                    android:id="@+id/btn_timer_5"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/five_times_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btn_timer_10"
+                    app:layout_constraintStart_toEndOf="@id/btn_timer_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+
+                <ImageButton
+                    android:id="@+id/btn_timer_10"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ten_times_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_timer_5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/ratio_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/black"
+            android:elevation="2dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/three_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/uzum_bold"
+                    android:padding="6dp"
+                    android:text="@string/_3_4"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/nine_sixteen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nine_sixteen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/uzum_bold"
+                    android:padding="6dp"
+                    android:text="@string/_9_16"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/one_one"
+                    app:layout_constraintStart_toEndOf="@id/three_four"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/one_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/uzum_bold"
+                    android:padding="6dp"
+                    android:text="@string/_1_1"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/nine_sixteen"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <Chronometer
+            android:id="@+id/recodingTimerC"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="4dp"
+            android:background="@drawable/bg_video"
+            android:fontFamily="@font/nunito_bold"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btnTakePhoto"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/bg_circule"
+            android:elevation="2dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/images"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/images" />
+
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/btnCaptureVideo"-->
+<!--            android:layout_width="64dp"-->
+<!--            android:layout_height="64dp"-->
+<!--            android:background="@drawable/bg_video"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/images"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/images"-->
+<!--            app:layout_constraintRight_toLeftOf="@id/btn_change_camera_image"-->
+<!--            app:layout_constraintTop_toTopOf="@id/images" />-->
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/images"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:clickable="false"
+            android:src="@drawable/ic_image"
+            app:layout_constraintBottom_toBottomOf="@id/btn_preview"
+            app:layout_constraintLeft_toLeftOf="@id/btn_preview"
+            app:layout_constraintRight_toRightOf="@+id/btn_preview"
+            app:layout_constraintTop_toTopOf="@id/btn_preview"
+            app:layout_constraintVertical_bias="0.5" />
+        <ImageView
+            android:id="@+id/btn_change_camera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_color_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btn_capture"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar" />
+        <ImageView
+            android:id="@+id/btn_change_camera_image"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/exchange"
+            app:layout_constraintBottom_toBottomOf="@id/btn_change_camera"
+            app:layout_constraintLeft_toLeftOf="@id/btn_change_camera"
+            app:layout_constraintRight_toRightOf="@id/btn_change_camera"
+            app:layout_constraintTop_toTopOf="@id/btn_change_camera"
+            app:tint="@color/white" />
+
+        <ImageView
+            android:id="@+id/btn_capture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_color_stroke"
+            app:layout_constraintBottom_toBottomOf="@id/images"
+            app:layout_constraintEnd_toEndOf="@+id/bottom_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/images" />
+
+
+
+        <ImageView
+            android:id="@+id/btn_preview"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_color_stroke_small"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_capture"
+            app:layout_constraintTop_toTopOf="@id/bottom_bar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

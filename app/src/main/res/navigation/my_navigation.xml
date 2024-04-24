@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav.xml"
+    app:startDestination="@id/takePhotoScreen">
+
+    <fragment
+        android:id="@+id/takePhotoScreen"
+        android:name="com.example.cameraapporginal.presentantion.capture.TakePhotoScreen"
+        android:label="TakePhotoScreen"
+        tools:layout="@layout/fragment_take_photo" >
+        <action
+            android:id="@+id/action_takePhotoScreen_to_photoPreviewScreen"
+            app:destination="@id/photoPreviewScreen" />
+        <action
+            android:id="@+id/action_takePhotoScreen_to_settingsScreen"
+            app:destination="@id/settingsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoPreviewScreen"
+        android:name="com.example.cameraapporginal.presentantion.preview.PhotoPreviewScreen"
+        android:label="PhotoPreviewScreen"
+        tools:layout="@layout/fragment_photo_preview" >
+        <argument
+            android:name="uri"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_photoPreviewScreen_to_allPhotosScreen"
+            app:destination="@id/allPhotosScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/allPhotosScreen"
+        android:name="com.example.cameraapporginal.presentantion.all_photos.AllPhotosScreen"
+        android:label="AllPhotosScreen"
+        tools:layout="@layout/screen_all_photos">
+        <action
+            android:id="@+id/action_allPhotosScreen_to_viewerScreen"
+            app:destination="@id/viewerScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsScreen"
+        android:name="com.example.cameraapporginal.presentantion.settings.SettingsScreen"
+        android:label="SettingsScreen"
+        tools:layout="@layout/screen_settings">
+        <action
+            android:id="@+id/action_settingsScreen_to_waterMarkSettingsScreen"
+            app:destination="@id/waterMarkSettingsScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/waterMarkSettingsScreen"
+        android:name="com.example.cameraapporginal.presentantion.WaterMarkSettingsScreen"
+        android:label="WaterMarkSettingsScreen"
+        tools:layout="@layout/screen_watermark_settings"/>
+    <fragment
+        android:id="@+id/viewerScreen"
+        android:name="uz.gita.camera_app_product.presentation.viewer.ViewerScreen"
+        android:label="ViewerScreen" >
+        <argument
+            android:name="uri"
+            app:argType="string" />
+    </fragment>
+</navigation>
